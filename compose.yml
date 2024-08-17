@@ -1,0 +1,11 @@
+services:
+  ts-app:
+    build:
+      context: .
+      dockerfile: ./node/Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - .:/app
+    tty: true
+
