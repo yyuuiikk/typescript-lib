@@ -1,20 +1,11 @@
 function twoSum(nums: number[], target: number): number[] {
     let numsMap = new Map;
-    nums.forEach((val, key) => {
-        numsMap.set(key, val);
-    })
 
     for (let i = 0; i < nums.length; i++) {
         let search = target - nums[i];
-        for (let [mapKey, mapVal] of numsMap) {
-            if (i === mapKey) {
-                continue;
-            }
+        if (numsMap.has(search)) return[numsMap.get(search), i];
 
-            if (search === mapVal) {
-                return [i, mapKey];
-            }
-        }
+        numsMap.set(nums[i], i);
     }
     return [];
 };
